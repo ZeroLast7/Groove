@@ -10,12 +10,12 @@
 <script src="config.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=IBM+Plex+Mono:wght@400;500&family=Bungee&family=Chakra+Petch:wght@400;500;600;700&family=Permanent+Marker&family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet">
 <style>
-/* Two rooms share one layout. Vinyl (default): 70s type in a pub / gentlemen's-club setting — bottle green, mahogany, brass, burnt orange.
+/* Two rooms share one layout. Vinyl (default): 70s type in a dark pub / study — near-black green walls, dark oak, burnt orange.
    CD rack ([data-room="cd"]): 90s–00s street tech — brick and spray paint, brushed chrome, LCD green, lime / cyan / hot pink. */
 :root,[data-room="vinyl"]{
-  --bg:#0f1c16;--bg2:#15261e;--field:#0b1511;--ink:#f2e7cf;--ink2:#d3c4a3;--muted:#9a9378;--dim:#5f6450;
-  --line:rgba(242,231,207,.09);--line2:rgba(242,231,207,.18);
-  --accent:#d9622b;--accent2:#ef7c45;--on-accent:#fff;--mustard:#c9a24e;--paper:#efe4cf;--paper-ink:#2a2018;
+  --bg:#0a0f0c;--bg2:#101713;--field:#070b09;--ink:#f0e6d2;--ink2:#cbbfa8;--muted:#8f8a7a;--dim:#565a4f;
+  --line:rgba(240,230,210,.08);--line2:rgba(240,230,210,.16);
+  --accent:#d9622b;--accent2:#ef7c45;--on-accent:#fff;--mustard:#d9a27c;--paper:#efe4cf;--paper-ink:#2a2018;
   --serif:'Fraunces',Georgia,serif;--sans:'Archivo',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
   --lcd:'VT323',ui-monospace,monospace;--tag:'Permanent Marker','Comic Sans MS',cursive;
   --ease:cubic-bezier(.2,.8,.2,1);
@@ -90,10 +90,10 @@ body::before{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;op
 
 .deck-wrap{display:flex;flex-direction:column;align-items:center;gap:20px;min-width:0}
 .deck{position:relative;width:min(100%,620px);aspect-ratio:5/4;border-radius:20px;
-  background:linear-gradient(180deg,rgba(255,236,210,.14),transparent 7%),
+  background:linear-gradient(180deg,rgba(255,236,210,.08),transparent 7%),
     repeating-linear-gradient(91deg,rgba(0,0,0,.09) 0 2px,transparent 2px 7px,rgba(255,220,180,.05) 7px 8px,transparent 8px 16px),
-    linear-gradient(135deg,#94603a,#673f21 45%,#43280f);
-  box-shadow:0 60px 100px -20px rgba(0,0,0,.75),0 0 0 1px rgba(0,0,0,.55),inset 0 2px 0 rgba(255,225,190,.3),inset 0 -8px 14px rgba(0,0,0,.35)}
+    linear-gradient(135deg,#4e3a27,#35271a 45%,#21180f);
+  box-shadow:0 60px 100px -20px rgba(0,0,0,.8),0 0 0 1px rgba(0,0,0,.6),inset 0 2px 0 rgba(255,235,210,.14),inset 0 -8px 14px rgba(0,0,0,.4)}
 .deck-plate{position:absolute;inset:3.2%;border-radius:13px;background:radial-gradient(ellipse at 30% 20%,#2a241e,#16120f 70%);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),inset 0 0 40px rgba(0,0,0,.7)}
 .platter{position:absolute;left:4.5%;top:5%;width:73%;aspect-ratio:1;border-radius:50%;background:repeating-conic-gradient(#a49b8d 0 1.1deg,#3c3631 1.1deg 3deg);box-shadow:0 14px 30px rgba(0,0,0,.65),inset 0 0 0 2px rgba(0,0,0,.4);animation:spin 1.8s linear infinite}
 .deck-record{position:absolute;left:6.1%;top:7%;width:69.8%;aspect-ratio:1;border-radius:50%;cursor:pointer;border:0;padding:0;background:none}
@@ -108,7 +108,7 @@ body::before{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;op
 .deck.lifted .tonearm{transform:rotate(-25deg)}
 .deck-controls{position:absolute;right:6%;bottom:8%;display:flex;align-items:center;gap:8px}
 .speed{padding:4px 8px;border-radius:5px;background:#0f0d0b;color:var(--dim);font:500 10px var(--mono);letter-spacing:.06em;box-shadow:inset 0 1px 2px rgba(0,0,0,.8),0 1px 0 rgba(255,255,255,.05)}
-.speed.on{color:var(--mustard);text-shadow:0 0 8px rgba(231,177,74,.6)}
+.speed.on{color:var(--accent2);text-shadow:0 0 8px rgba(239,124,69,.6)}
 .led{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent),0 0 2px #fff inset}
 .deck.lifted .led{background:#4a2a20;box-shadow:none}
 .knob{position:absolute;left:7%;bottom:7%;width:9%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 35%,#d9d2c6,#8d867c 55%,#4d4842);box-shadow:0 4px 8px rgba(0,0,0,.6)}
@@ -177,15 +177,15 @@ body::before{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;op
 .az button:disabled{color:#3d362e;cursor:default}
 
 /* ---------- the bookcase ---------- */
-.case{position:relative;margin:0 0 34px;padding:14px;border-radius:6px;background:linear-gradient(180deg,#8a5833,#62401f 40%,#45290f);box-shadow:0 40px 80px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,225,190,.3),inset 0 0 0 1px rgba(0,0,0,.4)}
+.case{position:relative;margin:0 0 34px;padding:14px;border-radius:6px;background:repeating-linear-gradient(91deg,rgba(0,0,0,.08) 0 2px,transparent 2px 8px,rgba(255,235,210,.025) 8px 9px,transparent 9px 15px),linear-gradient(180deg,#45331f,#32251a 40%,#21180f);box-shadow:0 40px 80px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,235,210,.14),inset 0 0 0 1px rgba(0,0,0,.45)}
 .case-name{position:absolute;top:-30px;left:2px;margin:0}
 .bookcase{
   --spineH:250px;--head:34px;--plank:22px;--row:calc(var(--spineH) + var(--head) + var(--plank));
   position:relative;display:flex;flex-wrap:wrap;align-items:flex-start;align-content:flex-start;padding:0 12px;
   background:
-    repeating-linear-gradient(180deg,rgba(0,0,0,.6) 0,rgba(0,0,0,0) 18px,transparent calc(var(--row) - var(--plank)),#e6b67a calc(var(--row) - var(--plank)),#a8703f calc(var(--row) - var(--plank) + 2px),#7d4e29 calc(var(--row) - var(--plank) + 9px),#4e3018 calc(var(--row) - 5px),#170e06 calc(var(--row) - 4px),#170e06 var(--row)),
+    repeating-linear-gradient(180deg,rgba(0,0,0,.6) 0,rgba(0,0,0,0) 18px,transparent calc(var(--row) - var(--plank)),#7a6047 calc(var(--row) - var(--plank)),#56412d calc(var(--row) - var(--plank) + 2px),#3f2f20 calc(var(--row) - var(--plank) + 9px),#2b2016 calc(var(--row) - 5px),#0d0905 calc(var(--row) - 4px),#0d0905 var(--row)),
     repeating-linear-gradient(90deg,rgba(255,255,255,.012) 0 2px,transparent 2px 11px),
-    linear-gradient(180deg,#140d08,#1e150e);
+    linear-gradient(180deg,#0c0906,#15100b);
   box-shadow:inset 0 0 50px rgba(0,0,0,.85),inset 12px 0 18px -10px rgba(0,0,0,.9),inset -12px 0 18px -10px rgba(0,0,0,.9)
 }
 .spine{
@@ -266,7 +266,7 @@ dialog::backdrop{background:rgba(10,8,6,.85)}
 .d-artist{margin:0;color:var(--ink2);font:italic 400 clamp(20px,2vw,28px)/1.2 var(--serif);font-variation-settings:'SOFT' 50}
 .d-facts{display:flex;flex-wrap:wrap;gap:6px 8px;margin:22px 0 24px;padding:0;list-style:none}
 .d-facts li{padding:5px 11px;border:1px solid var(--line2);border-radius:999px;color:var(--ink2);font:500 12px var(--sans)}
-.d-facts li.stars{color:var(--mustard);border-color:rgba(231,177,74,.4)}
+.d-facts li.stars{color:var(--mustard);border-color:color-mix(in srgb,var(--mustard) 45%,transparent)}
 .d-tabs{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line2);border-radius:999px}
 .d-tab{flex:none;height:36px;padding:0 16px;border:0;border-radius:999px;background:none;color:var(--muted);font:600 13px var(--sans);transition:background .2s,color .2s}
 .d-tab:hover{color:var(--ink)}
@@ -277,7 +277,7 @@ dialog::backdrop{background:rgba(10,8,6,.85)}
 .tracklist .n{flex:none;width:24px;color:var(--accent);font:500 12px/1.65 var(--mono)}
 .tracklist .side{padding:12px 0 4px;border:0;color:var(--mustard);font:500 11px var(--mono);letter-spacing:.16em;text-transform:uppercase}
 .panel-note{margin:0;color:var(--muted);font-size:14px}
-.mini-shelf{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:end;gap:10px;padding:4px 0 14px;border-bottom:7px solid #6e4524;box-shadow:0 8px 12px -6px rgba(0,0,0,.6)}
+.mini-shelf{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:end;gap:10px;padding:4px 0 14px;border-bottom:7px solid #3f2f20;box-shadow:0 8px 12px -6px rgba(0,0,0,.6)}
 .mini{min-width:0;padding:0;border:0;background:none;text-align:left;opacity:.6;transition:opacity .2s,transform .25s var(--ease)}
 .mini:hover{opacity:1;transform:translateY(-4px)}
 .mini.here{opacity:1;transform:translateY(-10px)}
@@ -445,36 +445,27 @@ body[data-room="vinyl"] .cd-only,body[data-room="cd"] .vinyl-only{display:none!i
 .rs-ico.cd{background:radial-gradient(circle,var(--bg) 0 12%,#eef2f5 13% 24%,transparent 25%),conic-gradient(#dfe3e6,#b9c6cf,#eadcf2,#cde7de,#f3e8cc,#dfe3e6)}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.45s}
 
-/* ----- VINYL ROOM: regency-stripe walls, mahogany, brass and a pub carpet ----- */
-body[data-room="vinyl"]{background:repeating-linear-gradient(90deg,#10201a 0 44px,#0d1a14 44px 88px,rgba(201,162,78,.12) 88px 89px,#0d1a14 89px 92px),var(--bg)}
+/* ----- VINYL ROOM: dark green walls, dark oak panelling and a deep pub carpet ----- */
+body[data-room="vinyl"]{background:repeating-linear-gradient(90deg,#0b110e 0 44px,#090e0b 44px 88px),var(--bg)}
 [data-room="vinyl"] .hero{background:
-    radial-gradient(ellipse 42% 55% at 74% 34%,rgba(246,205,118,.24),transparent 70%),
-    radial-gradient(ellipse 70% 60% at 20% 20%,rgba(255,255,255,.04),transparent 70%),
-    repeating-linear-gradient(90deg,#16301f 0 44px,#132a1c 44px 88px,rgba(201,162,78,.14) 88px 89px,#132a1c 89px 92px)}
+    radial-gradient(ellipse 42% 55% at 74% 36%,rgba(255,196,150,.09),transparent 70%),
+    radial-gradient(ellipse 70% 60% at 20% 20%,rgba(255,255,255,.025),transparent 70%),
+    repeating-linear-gradient(90deg,#0f1a14 0 44px,#0c1510 44px 88px)}
 [data-room="vinyl"] .hero::before{content:'';position:absolute;left:0;right:0;bottom:56px;height:30%;z-index:-1;
-  background:repeating-linear-gradient(90deg,transparent 0 18px,rgba(0,0,0,.22) 18px 20px,rgba(255,220,170,.05) 20px 21px,transparent 21px 190px,rgba(0,0,0,.3) 190px 193px),
-    linear-gradient(180deg,#4a2a14,#2c170a);
-  border-top:7px solid #6b4220;box-shadow:inset 0 7px 12px rgba(0,0,0,.5),0 -2px 0 #2c170a}
+  background:repeating-linear-gradient(90deg,transparent 0 18px,rgba(0,0,0,.28) 18px 20px,rgba(255,235,210,.035) 20px 21px,transparent 21px 190px,rgba(0,0,0,.35) 190px 193px),
+    repeating-linear-gradient(91deg,rgba(0,0,0,.08) 0 2px,transparent 2px 9px),
+    linear-gradient(180deg,#2a1f15,#18110b);
+  border-top:7px solid #32251a;box-shadow:inset 0 7px 12px rgba(0,0,0,.55),0 -2px 0 #120c07}
 .carpet{position:relative;height:56px;z-index:1;
-  background:radial-gradient(circle,#d8b25c 0 2.5px,transparent 3px) 0 0/30px 30px,
-    radial-gradient(circle,transparent 0 7px,#1f6a64 7.5px 9.5px,transparent 10px) 15px 15px/30px 30px,
-    conic-gradient(from 45deg,#5e1a27 0 25%,#481320 0 50%,#5e1a27 0 75%,#481320 0) 0 0/15px 15px,#481320;
-  box-shadow:inset 0 14px 16px -8px rgba(0,0,0,.65)}
-.carpet::before{content:'';position:absolute;left:0;right:0;top:-5px;height:10px;border-radius:5px;background:linear-gradient(180deg,#fbe7a8,#d2aa52 40%,#8a6a28 75%,#5d4518);box-shadow:0 4px 8px rgba(0,0,0,.55)}
-[data-room="vinyl"] .wordmark{color:transparent;background:linear-gradient(180deg,#fff4c9 0%,#efcd78 34%,#a97b2a 50%,#e5c271 66%,#fff0bd 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 0 #3a280c) drop-shadow(0 10px 22px rgba(0,0,0,.55))}
-[data-room="vinyl"] .wordmark span{background:linear-gradient(180deg,#ffb27c,#d9622b 55%,#9c3a12);-webkit-background-clip:text;background-clip:text}
-[data-room="vinyl"] .stats{gap:12px;border-top:0;padding-top:0}
-[data-room="vinyl"] .stats div{padding:10px 16px 12px;border-radius:4px;background:linear-gradient(160deg,#f1d78e,#b98c3c 55%,#dcb968);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -2px 0 rgba(0,0,0,.25),0 8px 16px rgba(0,0,0,.45)}
-[data-room="vinyl"] .stats dt{color:rgba(43,29,8,.72)}
-[data-room="vinyl"] .stats dd{color:#2b1d08;text-shadow:0 1px 0 rgba(255,255,255,.45)}
-[data-room="vinyl"] .btn.cream{background:linear-gradient(180deg,#f4dc95,#c9a24e 55%,#a47d2c);border-color:#a47d2c;color:#2b1d08;box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
-[data-room="vinyl"] .btn.cream:hover{background:linear-gradient(180deg,#fff0bd,#d9b25e 55%,#b38a35)}
-[data-room="vinyl"] .room-switch{border-color:rgba(201,162,78,.5)}
-[data-room="vinyl"] .toolbar{background:color-mix(in srgb,#1b3226 95%,transparent);border-bottom:0;box-shadow:inset 0 -3px 0 #7a5c22,inset 0 -4px 0 #e2c47a,0 12px 20px rgba(0,0,0,.25)}
-[data-room="vinyl"] .divider span{background:linear-gradient(180deg,#f6df9c,#c69a45 60%,#9c7630);color:#3a2708;text-shadow:0 1px 0 rgba(255,255,255,.4)}
-[data-room="vinyl"] .divider::before{background:linear-gradient(90deg,#c9a24e,#8a6a28)}
-[data-room="vinyl"] .sheet{background:#13261d;border-color:rgba(201,162,78,.45);box-shadow:0 40px 120px rgba(0,0,0,.75),inset 0 0 0 6px #13261d,inset 0 0 0 7px rgba(201,162,78,.35)}
-[data-room="vinyl"] .locator{background:#13261d;border-color:rgba(201,162,78,.35)}
+  background:radial-gradient(circle,#3f6a62 0 2px,transparent 2.5px) 0 0/30px 30px,
+    radial-gradient(circle,transparent 0 7px,#1d3f3b 7.5px 9px,transparent 9.5px) 15px 15px/30px 30px,
+    conic-gradient(from 45deg,#2f0e16 0 25%,#250b11 0 50%,#2f0e16 0 75%,#250b11 0) 0 0/15px 15px,#250b11;
+  box-shadow:inset 0 14px 16px -8px rgba(0,0,0,.75)}
+.carpet::before{content:'';position:absolute;left:0;right:0;top:-5px;height:10px;border-radius:3px;background:linear-gradient(180deg,#5a4532,#3a2b1e 45%,#1e150d);box-shadow:0 4px 8px rgba(0,0,0,.6)}
+[data-room="vinyl"] .wordmark{text-shadow:0 10px 30px rgba(0,0,0,.6)}
+[data-room="vinyl"] .toolbar{background:color-mix(in srgb,#0e1511 94%,transparent)}
+[data-room="vinyl"] .sheet{background:#0f1612}
+[data-room="vinyl"] .locator{background:#0f1612}
 .footer-carpet{height:44px}
 
 /* ----- CD RACK: brick wall, spray paint, brushed chrome and LCDs ----- */
